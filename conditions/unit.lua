@@ -369,6 +369,12 @@ NeP.DSL:Register('combat.time', function(target)
 end)
 
 NeP.DSL:Register('los', function(a, b)
-  return NeP.DSL:Get('is')(a,b or 'player')
-  or NeP.Protected.LineOfSight(a, b or 'player')
+  if NeP.DSL:Get('is')(a,b or 'player') then
+    return true
+  end
+  -- skip if its a boss
+  if NeP.BossID:Eval(a) or NeP.BossID:Eval(b) then
+    return true
+  end
+  return NeP.Protected.LineOfSight(a, b or 'player')
 end)
