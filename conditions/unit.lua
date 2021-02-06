@@ -92,7 +92,7 @@ NeP.DSL:Register('inphase', function(unit)
   if g.UnitIsPlayer(unit) then
     return reason == nil
   end
-  return reason == nil or reason == 2 --warmode is 2
+  return reason == nil or reason >= 2 --warmode is 2
 end)
 
 NeP.DSL:Register('exists', function(target)
