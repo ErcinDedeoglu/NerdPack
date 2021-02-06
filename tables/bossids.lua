@@ -24,7 +24,7 @@ end
 local function WoWBossID(unit)
   if not unit then return false end
   for i=1, 4 do
-    if NeP._G.UnitIsUnit(unit, "boss"..i) then
+    if NeP.DSL:Get('is')(unit, "boss"..i) then
       return true
     end
   end
