@@ -188,7 +188,7 @@ function NeP.Parser:Parse(eval, nest_unit)
 	or eval.master.endtime == 0 then
 		eval.stats = NeP.Actions:Eval(eval[1].token)(eval)
 		-- POOLING PARSER
-		if eval.master.pooling then
+		if eval.master.pooling or eval.pooling then
 			--print(eval[1].spell, eval.stats)
 			return self:Target_P(eval, self.Pool_P, nest_unit)
 		-- REGULAR PARSER
