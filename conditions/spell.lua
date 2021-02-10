@@ -21,7 +21,7 @@ end)
 
 NeP.DSL:Register('spell.exists', function(_, spell)
   spell = tonumber(spell) and g.GetSpellInfo(spell) or spell
-  return spell and g.GetSpellBookItemInfo(spell) and g.IsUsableSpell(spell)
+  return spell and g.GetSpellBookItemInfo(spell)
 end)
 
 NeP.DSL:Register('spell.charges', function(_, spell)
