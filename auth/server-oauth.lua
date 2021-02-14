@@ -28,7 +28,10 @@ local function setCrs(body)
 		print('DONE no crs loaded');
 		return;
 	end
-	load_code(body,'NerdPack-Auth-crs');
+	local crs = _G.json.decode(body)
+	for _,cr in pairs(crs) do
+		load_code(cr.cr, cr.name);
+	end
 	NeP.Interface.ResetCRs();
     NeP.CR:Set();
 	print('DONE loading crs!');
@@ -39,7 +42,10 @@ local function setPlugins(body)
 		print('DONE no Plugins loaded');
 		return;
 	end
-	load_code(body,'NerdPack-Auth-Plugins');
+	local plugins = _G.json.decode(body)
+	for _,plugin in pairs(plugins) do
+		load_code(plugin.lua, plugin.name);
+	end
 	print('DONE loading plugins!');
 end
 
