@@ -12,7 +12,7 @@ end
 
 function NeP.Library.Fetch(_, strg)
 	local a, b = strsplit(".", strg, 2)
-	return libs[a][b]
+	return b and libs[a][b] or libs[a]
 end
 
 function NeP.Library:Parse(strg, ...)
