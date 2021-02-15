@@ -191,23 +191,25 @@ local function cleanUnit(Obj)
 		NeP.OM.Roster[Obj.guid] = nil -- fail safe
 		return
 	end
-	local where = NeP.DSL:Get('friend')(Obj.key) and 'Friendly' or 'Enemy'
 	-- move Dead
 	local dead = NeP.DSL:Get('dead')(Obj.key)
 	if Obj.tbl ~= 'Dead' and dead then
 		NeP.OM.Dead[Obj.guid] = Obj
 		NeP.OM[Obj.tbl][Obj.guid] = nil
 		Obj.tbl = 'Dead'
-	elseif Obj.tbl == 'Dead' and not dead then
-		NeP.OM[where][Obj.guid] = Obj
-		NeP.OM.Dead[Obj.guid] = nil
-		Obj.tbl = where
-	end
-	-- move to friend/enemy
-	if Obj.tbl ~= where then
-		NeP.OM[where][Obj.guid] = Obj
-		NeP.OM[Obj.tbl][Obj.guid] = nil
-		Obj.tbl = where
+	else
+		local where = NeP.DSL:Get('friend')(Obj.key) and 'Friendly' or 'Enemy'
+		-- reset dead
+		if Obj.tbl == 'Dead' and not dead then
+			NeP.OM[where][Obj.guid] = Obj
+			NeP.OM.Dead[Obj.guid] = nil
+			Obj.tbl = where
+		-- move to friend/enemy
+		elseif Obj.tbl ~= where then
+			NeP.OM[where][Obj.guid] = Obj
+			NeP.OM[Obj.tbl][Obj.guid] = nil
+			Obj.tbl = where
+		end
 	end
 	-- combat reset?
 	if (ctime - Obj.last_hit_taken_time) > 15
