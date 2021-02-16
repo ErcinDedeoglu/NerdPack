@@ -10,7 +10,8 @@ local spacer_size = 10
 
 function NeP.Interface:Section(element, parent, table)
     local tmp = DiesalGUI:Create('AccordianSection')
-    tmp:SetParentObject(parent)
+    tmp:SetParentObject(parent.content)
+	parent:AddChild(tmp)
     tmp:SetStylesheet(self.sectionStylesheet)
 	tmp.settings.expanded = true;
 	-- Only when loaded
@@ -21,7 +22,6 @@ function NeP.Interface:Section(element, parent, table)
     tmp.settings.position = (#parent.children or 0) + 1
     tmp:ApplySettings()
     tmp:UpdateHeight()
-    parent:AddChild(tmp)
     return tmp
 end
 
