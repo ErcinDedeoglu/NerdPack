@@ -8,6 +8,22 @@ local SharedMedia = LibStub('LibSharedMedia-3.0')
 local def_text_size = 10
 local spacer_size = 10
 
+function NeP.Interface.Section(_, element, parent, table)
+    local tmp = DiesalGUI:Create('AccordianSection')
+    tmp:SetParentObject(parent)
+    tmp:ClearAllPoints()
+	tmp.settings.expanded = false;
+	-- Only when loaded
+	NeP.Core:WhenInGame(function()
+		element.color = element.color or table.color
+		tmp.settings.sectionName = (element.color and '|cff'..element.color or '')..element.text
+	end, 1)
+    tmp:ApplySettings()
+    tmp:UpdateHeight()
+    parent:AddChild(tmp)
+    return tmp
+end
+
 function NeP.Interface.Text(_, element, parent, table)
 	local tmp = DiesalGUI:Create('FontString')
 	tmp:SetParent(parent.content)

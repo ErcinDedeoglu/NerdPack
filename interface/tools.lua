@@ -150,6 +150,12 @@ function NeP.Interface:BuildElements(table, parent)
 	for i=1, #table.config do
 		local element = table.config[i]
 		local element_type = Elements[element.type:lower()]
+		-- section support
+		if element_type == 'section' then
+			local tmp = self[element_type](self, element, parent, table)
+			self:BuildElements(element.config, tmp)
+			return
+		end
 		--build element
 		element.key = element.key or "fake"
 		local tmp = self[element_type](self, element, parent, table)
