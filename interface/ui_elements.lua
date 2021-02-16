@@ -8,10 +8,10 @@ local SharedMedia = LibStub('LibSharedMedia-3.0')
 local def_text_size = 10
 local spacer_size = 10
 
-function NeP.Interface.Section(_, element, parent, table)
+function NeP.Interface:Section(element, parent, table)
     local tmp = DiesalGUI:Create('AccordianSection')
     tmp:SetParentObject(parent)
-    tmp:ClearAllPoints()
+    tmp:SetStylesheet(self.sectionStylesheet)
 	tmp.settings.expanded = true;
 	-- Only when loaded
 	NeP.Core:WhenInGame(function()
