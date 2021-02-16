@@ -18,6 +18,7 @@ function NeP.Interface.Section(_, element, parent, table)
 		element.color = element.color or table.color
 		tmp.settings.sectionName = (element.color and '|cff'..element.color or '')..element.text
 	end, 1)
+    tmp.settings.position = (#parent.children or 0) + 1
     tmp:ApplySettings()
     tmp:UpdateHeight()
     parent:AddChild(tmp)
