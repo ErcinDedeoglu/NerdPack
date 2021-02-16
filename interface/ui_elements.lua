@@ -12,6 +12,8 @@ function NeP.Interface:Section(element, parent, table)
     local tmp = DiesalGUI:Create('AccordianSection')
     tmp:SetParentObject(parent.content)
     tmp:SetStylesheet(self.sectionStylesheet)
+	tmp:SetPoint('TOPLEFT', parent.content, 'TOPLEFT', element.h or 5, table.offset)
+	tmp:SetPoint('TOPRIGHT', parent.content, 'TOPRIGHT', -(element.y or 5), table.offset)
 	tmp.settings.expanded = true;
 	-- Only when loaded
 	NeP.Core:WhenInGame(function()

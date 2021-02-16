@@ -98,7 +98,6 @@ NeP.Interface.sectionStylesheet = {
     }
 }
 
-
 NeP.Interface.buttonStyleSheet = {
 	['frame-color'] = {
 		type			= 'texture',

@@ -127,6 +127,7 @@ function NeP.Interface:AddText(element, parent, table, element_type, tmp)
 	if element.text
 	and element_type ~= "Text"
 	and element_type ~= "Header"
+	and element_type ~= "Section"
 	and element_type ~= "Button" then
 		tmp.text2 = self:Text(element, parent, table)
 		if element_type == 'Spinner' then
