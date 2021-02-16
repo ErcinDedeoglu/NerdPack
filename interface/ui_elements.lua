@@ -12,7 +12,7 @@ function NeP.Interface.Section(_, element, parent, table)
     local tmp = DiesalGUI:Create('AccordianSection')
     tmp:SetParentObject(parent)
     tmp:ClearAllPoints()
-	tmp.settings.expanded = false;
+	tmp.settings.expanded = true;
 	-- Only when loaded
 	NeP.Core:WhenInGame(function()
 		element.color = element.color or table.color
