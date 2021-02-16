@@ -19,7 +19,8 @@ local Elements = {
 	dropdown = 'Combo',
 	button = 'Button',
 	input = 'Input',
-	spacer = 'Spacer'
+	spacer = 'Spacer',
+	section = 'Section',
 }
 
 local default_profiles = {{key='default',text='Default'}}
