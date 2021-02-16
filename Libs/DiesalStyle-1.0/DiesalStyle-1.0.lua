@@ -22,7 +22,6 @@ DiesalStyle.TextureFrame = DiesalStyle.TextureFrame or CreateFrame("Frame"); Die
 DiesalStyle.Colors = DiesalStyle.Colors or {}
 DiesalStyle.Formatters = DiesalStyle.Formatters or {}
 -- ~~| DiesalStyle UpValues |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-local AddonName = local_stream_name
 local ReleasedTextures = DiesalStyle.ReleasedTextures
 local TextureFrame = DiesalStyle.TextureFrame
 local Media = DiesalStyle.Media
@@ -30,7 +29,7 @@ local Colors = DiesalStyle.Colors
 local Formatters = DiesalStyle.Formatters
 -- ~~| Locals |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 local OUTLINES = {'_LEFT','_RIGHT','_TOP','_BOTTOM'}
-local MEDIA_PATH = 'Interface\\AddOns\\' .. (local_stream_name or n_name) .. '\\media\\DiesalStyle-1.0\\'
+local MEDIA_PATH = 'Interface\\AddOns\\' .. local_stream_name .. '\\media\\DiesalStyle-1.0\\'
 local DEFAULT_COLOR = 'FFFFFF'
 local DEFAULT_GRADIENT_ORIENTATION = 'horizontal'
 local DEFAULT_LAYER = 'ARTWORK'
