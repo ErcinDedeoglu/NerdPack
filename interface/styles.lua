@@ -1,6 +1,12 @@
 local NeP = NeP
 NeP.Interface = {}
 
+local DiesalTools = _G.LibStub("DiesalTools-1.0")
+local DiesalStyle = _G.LibStub("DiesalStyle-1.0")
+
+local Colors = DiesalStyle.Colors
+local HSL = DiesalTools.HSL
+
 NeP.Interface.statusBarStylesheet = {
   ['frame-texture'] = {
     type		= 'texture',
@@ -12,6 +18,86 @@ NeP.Interface.statusBarStylesheet = {
     offset		= 0,
   }
 }
+
+NeP.Interface.sectionStylesheet = {
+    ["button-background"] = {
+        type = "texture",
+        layer = "BACKGROUND",
+        gradient = {"VERTICAL", Colors.UI_400_GR[1], Colors.UI_400_GR[2]},
+        alpha = .95,
+        position = {0, 0, -1, 0}
+    },
+    ["button-outline"] = {
+        type = "outline",
+        layer = "BACKGROUND",
+        color = "000000",
+        position = {1, 1, 0, 1}
+    },
+    ["button-inline"] = {
+        type = "outline",
+        layer = "ARTWORK",
+        gradient = {"VERTICAL", "ffffff", "ffffff"},
+        alpha = {.03, .02},
+        position = {0, 0, -1, 0}
+    },
+    ["button-hover"] = {
+        type = "texture",
+        layer = "HIGHLIGHT",
+        color = "ffffff",
+        alpha = .1
+    },
+    ["button-leftExpandIcon"] = {
+        type = "texture",
+        position = {0, nil, -1, nil},
+        height = 16,
+        width = 16,
+        image = {"DiesalGUIcons", {3, 6, 16, 256, 128}, HSL(Colors.UI_Hue, Colors.UI_Saturation, .65)},
+        alpha = 1
+    },
+    ["button-leftCollapseIcon"] = {
+        type = "texture",
+        position = {0, nil, -1, nil},
+        height = 16,
+        width = 16,
+        image = {"DiesalGUIcons", {4, 6, 16, 256, 128}, HSL(Colors.UI_Hue, Colors.UI_Saturation, .65)},
+        alpha = 1
+    },
+    ["content-background"] = {
+        type = "texture",
+        layer = "BACKGROUND",
+        color = Colors.UI_300,
+        alpha = .95,
+        position = {0, 0, -1, 0}
+    },
+    ["content-topShadow"] = {
+        type = "texture",
+        layer = "ARTWORK",
+        gradient = {"VERTICAL", "000000", "000000"},
+        alpha = {.05, 0},
+        position = {0, 0, -1, nil},
+        height = 4
+    },
+    ["content-bottomShadow"] = {
+        type = "texture",
+        layer = "ARTWORK",
+        gradient = {"VERTICAL", "000000", "000000"},
+        alpha = {0, .05},
+        position = {0, 0, nil, 0},
+        height = 4
+    },
+    ["content-inline"] = {
+        type = "outline",
+        layer = "ARTWORK",
+        color = "ffffff",
+        alpha = .02,
+        position = {0, 0, -1, 0}
+    },
+    ["text-Font"] = {
+        type = "font",
+        color = Colors.UI_F450
+    }
+}
+
 
 NeP.Interface.buttonStyleSheet = {
 	['frame-color'] = {
