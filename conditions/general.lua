@@ -32,8 +32,8 @@ NeP.DSL:Register('toggle', function(_, toggle)
 end)
 
 NeP.DSL:Register('casting.percent', function(target)
-  local name, startTime, endTime, notInterruptible = checkCasting(target)
-  if name and not notInterruptible then
+  local name, startTime, endTime = checkCasting(target)
+  if name then
     local castLength = (endTime - startTime) / 1000 or 0
     local secondsDone = g.GetTime() - (startTime / 1000) or 0
     return ((secondsDone/castLength)*100) or 0
@@ -42,8 +42,8 @@ NeP.DSL:Register('casting.percent', function(target)
 end)
 
 NeP.DSL:Register('channeling.percent', function(target)
-  local name, startTime, endTime, notInterruptible = checkChanneling(target)
-  if name and not notInterruptible then
+  local name, startTime, endTime = checkChanneling(target)
+  if name then
     local castLength = (endTime - startTime) / 1000 or 0
     local secondsDone = g.GetTime() - (startTime / 1000) or 0
     return ((secondsDone/castLength)*100) or 0
