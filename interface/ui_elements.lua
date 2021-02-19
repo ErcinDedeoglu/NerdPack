@@ -111,7 +111,7 @@ function NeP.Interface.Spinner(_,element, parent, table)
 	--Settings
 	tmp.settings.width = element.width or tmp.settings.width
 	tmp.settings.height = element.height or tmp.settings.height
-	tmp.settings.min = tmp.settings.min or element.min
+	tmp.settings.min = element.min or tmp.settings.min
 	tmp.settings.max = element.max or tmp.settings.max
 	tmp.settings.step = element.step or tmp.settings.step
 	tmp.settings.shiftStep = element.shiftStep or tmp.settings.shiftStep
